@@ -14,7 +14,6 @@ RUN git clone https://github.com/AcademySoftwareFoundation/openvdb.git && \
     cd openvdb && \
     mkdir build && \
     cd build && \
-    cmake .. \
-    #-D OPENVDB_BUILD_PYTHON_MODULE=ON -D Python3_EXECUTABLE=/usr/bin/python3 -D Python3_INCLUDE_DIR=/usr/include/python3.11 -D Python3_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.11.so && \
-    make && \
+    cmake .. -D OPENVDB_BUILD_PYTHON_MODULE=ON && \
+    make && \ 
     make install
