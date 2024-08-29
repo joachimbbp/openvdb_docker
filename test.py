@@ -1,4 +1,4 @@
-#%%
+
 
 # the `#%%` tells vscode to run this in our jupyter notebook server
 import os
@@ -9,6 +9,3 @@ sys.path.append(package_path)
 import pyopenvdb as vdb
 
 vdb.Axis
-
-
-# %%

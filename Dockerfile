@@ -25,14 +25,4 @@ USER nonroot
 
 RUN pipx install --include-deps jupyter
 
-ENTRYPOINT [ "/home/nonroot/.local/bin/jupyter", "notebook", "--ip=0.0.0.0", "--no-browser", "--NotebookApp.token=''", "--NotebookApp.password=''", "--NotebookApp.allow_origin='*'"]
-#Technically very unsafe as we have no token or password, but fine for local installs
-
-#ENTRYPOINT [ "jupyter", "notebook" ]
-# ?? Pin the versions here for jupyter and other dependencies?
-
-#start jupyter notebook server, set host to 0.0.0.0, which means it accepts all inbound connections (it's a web server)
-# fix or disable passord
-
-#Add all the other packages as well
-# No hard and fast rule, but lets use a requirements.txt
+ENTRYPOINT [ "sleep", "infinity" ]
