@@ -14,7 +14,7 @@ It was made with [Zach Lipp](https://github.com/zachlipp) at the [Recurse Center
 - [x] Install all other dependencies with docker container
     - [x] Pin their versions
     - [x] Move Jupyter dependency from global install to a simple Python dependency
-    - [ ] Figure out a DRYer and less verbose `pipx` installation technique
+    - [x] Figure out a DRYer and less verbose `pipx` installation technique
 - [ ] Pin "system dependencies"
     - You will have to rebuild `openvdb`, so allot ample downtime for this and make sure you have everything you need before doing so.
 - [ ] Figure out a good naming difference between these two and name their respective `.txt` files accordingly
