@@ -23,6 +23,11 @@ RUN apt-get install -y python3-pip pipx
 RUN useradd -ms /bin/bash nonroot
 USER nonroot
 
-RUN pipx install --include-deps jupyter
+RUN pipx install --include-deps jupyter==1.1.1 
+RUN pipx install --include-deps nibabel==5.2.1 
+RUN pipx install --include-deps numpy==2.0.1
+RUN pipx install --include-deps pytest==8.3.1
+RUN pipx install --include-deps matplotlib==3.9.1
+# Would be nice to have this be a little less verbose
 
 ENTRYPOINT [ "sleep", "infinity" ]
