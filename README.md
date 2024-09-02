@@ -4,7 +4,7 @@ This is a Dockerfile for the upcoming integration of [OpenVDB](https://www.openv
 It was made with [Zach Lipp](https://github.com/zachlipp) at the [Recurse Center](https://www.recurse.com/)
 
 # To Do
-## Dev and Buld
+## Dev and Build
 - [ ] Configure the Dev Container with Python
 - [ ] Learn how to not copy Dev Container directories
 - [ ] Multistage Build
