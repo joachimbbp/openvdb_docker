@@ -16,7 +16,7 @@ It was made with [Zach Lipp](https://github.com/zachlipp) at the [Recurse Center
     - [x] Pin their versions
     - [x] Move Jupyter dependency from global install to a simple Python dependency
     - [x] Figure out a DRYer and less verbose `pipx` installation technique
-    - [ ] Install `nilearn` in neurovolume_deps.txt`
+    - [x] Install `nilearn` in neurovolume_deps.txt`
 - [x] Pin "system dependencies"
 - [x] Figure out a good naming difference between these two and name their respective `.txt` files accordingly
     - Created a 'neurovolume_deps.txt' specifically for [neurovolume](https://github.com/joachimbbp/neurovolume). This allows other projects to easily swap out their own dependencies.
