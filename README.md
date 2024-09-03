@@ -10,6 +10,7 @@ It was made with [Zach Lipp](https://github.com/zachlipp) at the [Recurse Center
 - [ ] Multistage Build
 - [ ] Docker Compose File for developer experience
 - [ ] Install vscode Python extension
+- [ ] Install Jupyter Python extension
 ## Dependencies
 - [x] Install all other dependencies with docker container
     - [x] Pin their versions
