@@ -1,7 +1,7 @@
 # Info
-This is a Dockerfile for the upcoming integration of [OpenVDB](https://www.openvdb.org/) into [Neurovolume](https://github.com/joachimbbp/neurovolume)
+This project is a Dockerfile for [OpenVDB](https://www.openvdb.org/) with `NumPy` support. It is used in [Neurovolume](https://github.com/joachimbbp/neurovolume) but should also be applicable to many scientific visualization projects.
 
-It was made with [Zach Lipp](https://github.com/zachlipp) at the [Recurse Center](https://www.recurse.com/)
+It was made by [Zach Lipp](https://github.com/zachlipp) and Joachim Pfefferkorn (but mostly Zach) at the [Recurse Center](https://www.recurse.com/)
 
 # To Do
 ## Dev and Build
