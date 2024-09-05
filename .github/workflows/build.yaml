@@ -23,7 +23,7 @@ jobs:
             - name: Build Docker Image
               run: docker build -t my-image:latest .
 
-            - name: build
-              run: make build
+#            - name: build
+#              run: make build
 
             - run: echo "🏁 all steps complete"
