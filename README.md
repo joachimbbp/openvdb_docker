@@ -9,7 +9,7 @@ It was made by [Zach Lipp](https://github.com/zachlipp) and Joachim Pfefferkorn 
 - [ ] Learn how to not copy Dev Container directories
 - [ ] Multistage Build
 - [ ] Docker Compose File for developer experience
-- [ ] Install vscode Python extension
+- [ ] Install VScode Python extension
 - [ ] Install Jupyter Python extension
 ## Dependencies
 - [x] Install all other dependencies with docker container
@@ -20,3 +20,7 @@ It was made by [Zach Lipp](https://github.com/zachlipp) and Joachim Pfefferkorn 
 - [x] Pin "system dependencies"
 - [x] Figure out a good naming difference between these two and name their respective `.txt` files accordingly
     - Created a 'neurovolume_deps.txt' specifically for [neurovolume](https://github.com/joachimbbp/neurovolume). This allows other projects to easily swap out their own dependencies.
+## Github Actions
+- [ ] Test the github actions
+- [ ] Lock action versions (`checkout@v4` etc )
+- [ ] Cache and/or retain the Docker image (either by integrating into dockerhub or by github action log retention)

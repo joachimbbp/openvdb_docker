@@ -1,0 +1,25 @@
+name: Build
+on:
+    pull_request:
+        paths:
+            - Dockerfile
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "🐋 Dockerfile change detected by a ${{github.event_name}} event!"
+            - run: echo "🧪 This job, running on ${{runner.os}}, will test to see if the dockerfile can succesfully build an image"
+            - run: echo "🌳 Just so you know, this is running on the ${{github.ref}} branch of ${{github.repository}}"
+            
+            - name: Check Out
+              uses: actions/checkout@v4
+            - run: echo "🏃‍➡️ ${{github.repository}} has been cloned to ${{runner.name}}"
+            
+            - run: echo "🏗️ Setting up Docker Buildx..."
+            - name: Setup Docker Buildx
+              uses: docker/setup-buildx-action@v3
+            
+            - run: echo "🚜 Running Docker Image..."
+            - name: Build Docker Image
+              run: docker build -t my-image:latest .
+            - run: echo "🏁 all steps complete"
