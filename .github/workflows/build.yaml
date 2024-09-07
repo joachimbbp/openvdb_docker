@@ -1,6 +1,8 @@
 name: Build
 on:
-    pull_request:
+    push:
+        branches:
+            - 'main'
         paths:
             - Dockerfile
 jobs:
@@ -9,7 +11,7 @@ jobs:
         steps:
             - run: echo "🐋 Dockerfile change detected by a ${{github.event_name}} event!"
             - run: echo "🧪 This job, running on ${{runner.os}}, will test to see if the dockerfile can succesfully build an image"
-            - run: echo "🌳 Just so you know, this is running on the ${{github.ref}} branch of ${{github.repository}}"
+            - run: echo "🌳 This is running on the ${{github.ref}} branch of ${{github.repository}}"
             
             - name: Check Out
               uses: actions/checkout@v4
@@ -19,11 +21,15 @@ jobs:
             - name: Setup Docker Buildx
               uses: docker/setup-buildx-action@v3
             
-            - run: echo "🚜 Running Docker Image..."
-            - name: Build Docker Image
-              run: docker build -t my-image:latest .
+            - name: Sanitize PR Title to Create Docker Image Tag
+              id: sanitize
+              run: echo "title=$(echo ${{ github.event.head_commit.message }} | tr -cs '[:alnum:]' '-')" >> $GITHUB_OUTPUT
 
-#            - name: build
-#              run: make build
+            - name: Create Set Docker Tag
+              run: echo "SANITIZED_TITLE=${{ steps.sanitize.outputs.title }}" >> $GITHUB_ENV 
+
+            - run: echo "🚜 Building docker image ${{env.SANITIZED_TITLE}}"
+            - name: Build Docker Image 
+              run: docker build -t "${{env.SANITIZED_TITLE}}" .
 
             - run: echo "🏁 all steps complete"
