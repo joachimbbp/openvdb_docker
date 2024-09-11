@@ -1,4 +1,6 @@
-#TODO trigger when build finishes
+#READ THIS:
+#this file is on main only to test github actions. it is a WIP
+
 name: Build And Push
 on:
   # push:
@@ -11,8 +13,12 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    environment: docker_jbbp
     steps:
-
+    
+      - name: Verify Secrets
+        run: echo "Username is set to ${{ secrets.DOCKERHUB_USERNAME }}"
+  
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
