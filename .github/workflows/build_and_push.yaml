@@ -1,0 +1,43 @@
+#READ THIS:
+#this file is on main only to test github actions. it is a WIP
+
+name: Build And Push
+on:
+  # push:
+  #   branches:
+  #       - 'main'
+  #   paths:
+  #       - Dockerfile
+    workflow_dispatch
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PW }}
+
+      - name: Set up QEMU #might not be needed
+        uses: docker/setup-qemu-action@v3
+
+      - name: Check Out
+        uses: actions/checkout@v4
+      - run: echo "🏃‍➡️ ${{ github.repository }} has been cloned to ${{ runner.name }}"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+        env:
+          DATETIME: "$(date +'%Y%m%d%H%M%S')"
+      - name: Set Image Tag #TODO get rid of this echo hack, put it directly in the variable
+        run: echo "IMAGE_TAG=openvdb${{ env.DATETIME }}" >> $GITHUB_ENV
+
+      - name: Build and Push to Dockerhub
+        uses: docker/build-push-action@v6
+        with:
+          push: true
+          tags: ${{ env.IMAGE_TAG }} #user/app:latest
