@@ -4,10 +4,10 @@ on:
 
 jobs:
   dummy:
-    runs-on: ubunut-latest
+    runs-on: ubuntu-latest
     environment: docker_jbbp
     steps:
-    - name: Echo Info
-      run: echo "This is an empty actions file. It was created on main to reveal Build and Push files on other branches. To test this action, please run it on whatever branch holds your draft"
-    - name: Verify Secrets
-      run: echo "Username is set to ${{ secrets.DOCKERHUB_USERNAME }}"
+      - name: Echo Info
+        run: echo "This is an empty actions file. It was created on main to reveal Build and Push files on other branches. To test this action, please run it on whatever branch holds your draft."
+      - name: Verify Secrets
+        run: echo "Username is set to \${{ secrets.DOCKERHUB_USERNAME }}"
