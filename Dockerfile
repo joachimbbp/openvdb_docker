@@ -55,10 +55,4 @@ RUN python3 -m venv .venv && \
     # TODO: Parametrize?
     pip install -r neurovolume_deps.txt
 
-<<<<<<< multi-stage-build
-ENTRYPOINT ["sleep", "infinity"]
-=======
-ENV PYTHONPATH="/openvdb/build/openvdb/openvdb/python"
-
 ENTRYPOINT [ "sleep", "infinity" ]
->>>>>>> main
