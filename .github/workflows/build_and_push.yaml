@@ -1,14 +1,10 @@
-#READ THIS:
-#this file is on main only to test github actions. it is a WIP
-
 name: Build And Push
 on:
-  # push:
-  #   branches:
-  #       - 'main'
-  #   paths:
-  #       - Dockerfile
-    workflow_dispatch
+  push:
+    branches:
+        - 'main'
+    paths:
+        - Dockerfile
 
 jobs:
   docker:
@@ -36,8 +32,8 @@ jobs:
 
         env:
           DATETIME: "$(date +'%Y%m%d%H%M%S')"
-      - name: Set Image Tag #TODO get rid of this echo hack, put it directly in the variable
-        run: echo "IMAGE_TAG=joachimbbp/openvdb:openvdb_${{ env.DATETIME }}" >> $GITHUB_ENV
+      - name: Set Image Tag #TODO get rid of this echo hack, figure out how to se it as an env variable
+        run: echo "IMAGE_TAG=joachimbbp/openvdb:openvdb_${{ env.DATETIME }}" >> $GITHUB_ENV #TODO cleanup the logic here; it would be nice to have the repo as it's own env variable
 
       - name: Build and Push to Dockerhub
         uses: docker/build-push-action@v6
