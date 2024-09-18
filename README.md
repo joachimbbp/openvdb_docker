@@ -9,12 +9,11 @@ To do so using [act](https://github.com/nektos/act):
 - navigate to `openvdb_docker`
 - run `act -j build`
 
-
 # To Do
 ## Dev and Build
 - [ ] Configure the Dev Container with Python
 - [ ] Learn how to not copy Dev Container directories
-- [ ] Multistage Build
+- [x] Multistage Build
 - [ ] Docker Compose File for developer experience
 - [ ] Install VScode Python extension
 - [ ] Install Jupyter Python extension
