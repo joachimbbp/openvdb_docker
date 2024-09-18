@@ -30,7 +30,6 @@ jobs:
 
       - name: Check Out
         uses: actions/checkout@v4
-      - run: echo "🏃‍➡️ ${{ github.repository }} has been cloned to ${{ runner.name }}"
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -38,7 +37,7 @@ jobs:
         env:
           DATETIME: "$(date +'%Y%m%d%H%M%S')"
       - name: Set Image Tag #TODO get rid of this echo hack, put it directly in the variable
-        run: echo "IMAGE_TAG=openvdb${{ env.DATETIME }}" >> $GITHUB_ENV
+        run: echo "IMAGE_TAG=joachimbbp/openvdb:openvdb_${{ env.DATETIME }}" >> $GITHUB_ENV
 
       - name: Build and Push to Dockerhub
         uses: docker/build-push-action@v6
@@ -46,4 +45,3 @@ jobs:
           context: .
           push: true
           tags: ${{ env.IMAGE_TAG }}
-          repository: ${{ secrets.DOCKERHUB_USERNAME }}/openvdb
