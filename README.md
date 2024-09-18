@@ -29,5 +29,5 @@ To do so using [act](https://github.com/nektos/act):
 ## Github Actions
 - [x] Test the github actions
 - [ ] Lock action versions (`checkout@v4` etc )
-- [ ] Cache and/or retain the Docker image (either by integrating into dockerhub or by github action log retention)
+- [x] Cache and/or retain the Docker image (either by integrating into dockerhub or by github action log retention)
     - [x] Make this this retained Docker image has a dynamic, unique, meaningful name (perhaps include time and date)
