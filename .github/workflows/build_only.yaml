@@ -1,13 +1,5 @@
-name: Build
-on:
-    push:
-        branches:
-            - 'main'
-    push:
-        branches:
-            - 'main'
-        paths:
-            - Dockerfile
+name: Build Only
+on: workflow_dispatch
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -24,12 +16,11 @@ jobs:
             - name: Setup Docker Buildx
               uses: docker/setup-buildx-action@v3
 
-            - name: Get Date and Time
-              id: datetime
-              run: echo "DATETIME=$(date +'%Y%m%d%H%M%S')" >> $GITHUB_ENV
-
-            - name: Set Image Tag
+              env:
+                DATETIME: "$(date +'%Y%m%d%H%M%S')"
+            - name: Set Image Tag #TODO get rid of this echo hack, put it directly in the variable
               run: echo "IMAGE_TAG=openvdb${{ env.DATETIME }}" >> $GITHUB_ENV
+
 
             - run: echo "🚜 Building docker image ${{ env.IMAGE_TAG }}"
             - name: Build Docker Image 

@@ -1,13 +1,47 @@
-name: Build and Push
+#READ THIS:
+#this file is on main only to test github actions. it is a WIP
+
+name: Build And Push
 on:
-  workflow_dispatch:
+  # push:
+  #   branches:
+  #       - 'main'
+  #   paths:
+  #       - Dockerfile
+    workflow_dispatch
 
 jobs:
-  dummy:
+  docker:
     runs-on: ubuntu-latest
     environment: docker_jbbp
     steps:
-      - name: Echo Info
-        run: echo "This is an empty actions file. It was created on main to reveal Build and Push files on other branches. To test this action, please run it on whatever branch holds your draft."
+    
       - name: Verify Secrets
-        run: echo "Username is set to \${{ secrets.DOCKERHUB_USERNAME }}"
+        run: echo "Username is set to ${{ secrets.DOCKERHUB_USERNAME }}"
+  
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKER_TOKEN }}
+
+      - name: Set up QEMU #might not be needed
+        uses: docker/setup-qemu-action@v3
+
+      - name: Check Out
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+        env:
+          DATETIME: "$(date +'%Y%m%d%H%M%S')"
+      - name: Set Image Tag #TODO get rid of this echo hack, put it directly in the variable
+        run: echo "IMAGE_TAG=joachimbbp/openvdb:openvdb_${{ env.DATETIME }}" >> $GITHUB_ENV
+
+      - name: Build and Push to Dockerhub
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ env.IMAGE_TAG }}

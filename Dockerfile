@@ -56,3 +56,5 @@ RUN python3 -m venv .venv && \
     pip install -r neurovolume_deps.txt
 
 ENTRYPOINT [ "sleep", "infinity" ]
+
+#Comment added to test github actions 3
