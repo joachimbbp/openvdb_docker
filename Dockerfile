@@ -37,7 +37,8 @@ COPY --from=builder \
   /lib/aarch64-linux-gnu/liblzma.so.5 \
   /usr/local/lib64/libstdc++.so.6 \
   /usr/local/lib64/libgcc_s.so.1 \
-  /lib/aarch64-linux-gnu \
+  /lib/aarch64-linux-gnu/
+
 # --- python ---
 COPY --from=builder \
   /openvdb/build/openvdb/openvdb/python/pyopenvdb.cpython-311-aarch64-linux-gnu.so /usr/local/lib/python3.11/site-packages/
