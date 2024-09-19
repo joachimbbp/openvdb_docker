@@ -1,7 +1,10 @@
-# Info
+# Docker for OpenVDB
 This project is a Dockerfile for [OpenVDB](https://www.openvdb.org/) with `NumPy` support. It is used in [Neurovolume](https://github.com/joachimbbp/neurovolume) but should also be applicable to many scientific visualization projects.
 
 It was made by [Zach Lipp](https://github.com/zachlipp) and Joachim Pfefferkorn (but mostly Zach) at the [Recurse Center](https://www.recurse.com/)
+
+# Grid Types
+Note that not all grid types are available to Python in this compilation of OpenVDB. As per the defaults, only `FloatGrid`, `BoolGrid` and `Vec3SGrid` are accessible. For more information, please consult the [OpenVDB in Python Documentation](https://www.openvdb.org/documentation/doxygen/python.html). We are considering adding all grid types in the future.
 
 # Pull Requests
 Before submitting a pull request, please make sure that the docker file builds on your machine with our github actions.
@@ -26,6 +29,7 @@ To do so using [act](https://github.com/nektos/act):
 - [x] Pin "system dependencies"
 - [x] Figure out a good naming difference between these two and name their respective `.txt` files accordingly
     - Created a 'neurovolume_deps.txt' specifically for [neurovolume](https://github.com/joachimbbp/neurovolume). This allows other projects to easily swap out their own dependencies.
+- [ ] Create option for defining 
 ## Github Actions
 - [x] Test the github actions
 - [ ] Lock action versions (`checkout@v4` etc )
