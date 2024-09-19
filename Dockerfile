@@ -14,7 +14,7 @@ RUN git clone https://github.com/AcademySoftwareFoundation/openvdb.git && \
     git checkout a759e477aad3f305585ae85c6c723769a7e5f2cf && \
     mkdir build && \
     cd build && \
-    cmake .. -D OPENVDB_BUILD_PYTHON_MODULE=ON -D USE_NUMPY=ON && \
+    cmake .. -D OPENVDB_BUILD_PYTHON_MODULE=ON -D USE_NUMPY=ON -D PY_OPENVDB_WRAP_ALL_GRID_TYPES=ON && \
     make && \
     make install
 
@@ -37,8 +37,7 @@ COPY --from=builder \
   /lib/aarch64-linux-gnu/liblzma.so.5 \
   /usr/local/lib64/libstdc++.so.6 \
   /usr/local/lib64/libgcc_s.so.1 \
-  /lib/aarch64-linux-gnu
-
+  /lib/aarch64-linux-gnu \
 # --- python ---
 COPY --from=builder \
   /openvdb/build/openvdb/openvdb/python/pyopenvdb.cpython-311-aarch64-linux-gnu.so /usr/local/lib/python3.11/site-packages/
@@ -56,5 +55,3 @@ RUN python3 -m venv .venv && \
     pip install -r neurovolume_deps.txt
 
 ENTRYPOINT [ "sleep", "infinity" ]
-
-#Comment added to test github actions 3
