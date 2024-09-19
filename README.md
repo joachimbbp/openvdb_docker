@@ -29,7 +29,6 @@ To do so using [act](https://github.com/nektos/act):
 - [x] Pin "system dependencies"
 - [x] Figure out a good naming difference between these two and name their respective `.txt` files accordingly
     - Created a 'neurovolume_deps.txt' specifically for [neurovolume](https://github.com/joachimbbp/neurovolume). This allows other projects to easily swap out their own dependencies.
-- [ ] Create option for defining 
 ## Github Actions
 - [x] Test the github actions
 - [ ] Lock action versions (`checkout@v4` etc )
