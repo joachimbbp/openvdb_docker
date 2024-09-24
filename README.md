@@ -1,3 +1,6 @@
+# Branch info
+Branch for fixing the cmake flags as well as possibly fixing some CI issues
+
 # Docker for OpenVDB
 This project is a Dockerfile for [OpenVDB](https://www.openvdb.org/) with `NumPy` support and all grid types enabled. It is used in [Neurovolume](https://github.com/joachimbbp/neurovolume) but should also be applicable to many scientific visualization projects.
 

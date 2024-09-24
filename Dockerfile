@@ -16,7 +16,7 @@ RUN git clone https://github.com/AcademySoftwareFoundation/openvdb.git && \
     git checkout a759e477aad3f305585ae85c6c723769a7e5f2cf && \
     mkdir build && \
     cd build && \
-    cmake .. -D OPENVDB_BUILD_PYTHON_MODULE=ON -D USE_NUMPY=ON -D PY_OPENVDB_WRAP_ALL_GRID_TYPES=ON && \
+    cmake .. -DOPENVDB_BUILD_PYTHON_MODULE=ON -DUSE_NUMPY=ON -DPY_OPENVDB_WRAP_ALL_GRID_TYPES=ON && \
     make && \
     make install
 
