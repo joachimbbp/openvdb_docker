@@ -1,11 +1,10 @@
 name: Build And Push
-#CURRENTLY BROKEN
 on:
-  # push:
-  #   branches:
-  #       - 'main'
-  #   paths:
-  #       - Dockerfile
+  push:
+    branches:
+        - 'main'
+    paths:
+        - Dockerfile
   workflow_dispatch:
     
 jobs:

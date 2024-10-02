@@ -16,7 +16,7 @@ To do so using [act](https://github.com/nektos/act):
 ## Dev and Build
 - [ ] Configure the Dev Container with Python
 - [ ] Learn how to not copy Dev Container directories
-- [x] Multistage Build
+- [ ] Multistage Build
 - [ ] Docker Compose File for developer experience
 - [ ] Install VScode Python extension
 - [ ] Install Jupyter Python extension
