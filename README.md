@@ -12,6 +12,10 @@ To do so using [act](https://github.com/nektos/act):
 - navigate to `openvdb_docker`
 - run `act -j build`
 
+# Commit Notes
+Returing to dockerfile from commit `25e3169feac1c34c236ca0ee8f98d159e4ef78c6` as current multi-stage builds were proving problematic. This is a minimum viable product for Neurovolume.
+Github actions have changed to `workflow_dispatch` only.
+
 # To Do
 ## Dev and Build
 - [ ] Configure the Dev Container with Python
