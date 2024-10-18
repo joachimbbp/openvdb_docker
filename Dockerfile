@@ -7,7 +7,6 @@ RUN apt-get update && \
     libblosc-dev=1.21.3+ds-1 \
     cmake=3.25.1-1 \
     python3-pybind11=2.10.3-1 \
-    # TODO: Split to multistage build
     python3-venv=3.11.2-1+b1 \
     python3-pip=23.0.1+dfsg-1
 
@@ -27,11 +26,9 @@ WORKDIR /home/nonroot
 
 COPY neurovolume_deps.txt .
 
-# This path doesn't exist yet; we create it in the next layer
 ENV PATH="/home/nonroot/.venv/bin:$PATH"
 
 RUN python3 -m venv .venv && \
-    # TODO: Parametrize?
     pip install -r neurovolume_deps.txt
 
 ENV PYTHONPATH="/openvdb/build/openvdb/openvdb/python"
