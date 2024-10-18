@@ -1,6 +1,8 @@
 # Docker for OpenVDB
 This project is a Dockerfile for [OpenVDB](https://www.openvdb.org/). It includes NumPy support and default grids (`FloatGrid`, `BoolGrid`, and `Vec3sGrid`) only for fast build times.
 
+This dockerfile is intended for local builds. It does not specify system architecture and will default to whatever architecture you build it on.
+
 This dockerfile is used in [Neurovolume](https://github.com/joachimbbp/neurovolume) but should also be applicable to many scientific visualization projects.
 
 It was made by [Zach Lipp](https://github.com/zachlipp) and Joachim Pfefferkorn (but mostly Zach) at the [Recurse Center](https://www.recurse.com/)
