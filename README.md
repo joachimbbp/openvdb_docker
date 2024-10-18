@@ -13,4 +13,4 @@ To do so using [act](https://github.com/nektos/act):
 
 # Future Work
 - A multi-architecture build which pushes directly to Dockerhub has been been in the works (see previous commits and other branches). While we have had limited success with these, we would like to implement this in the future.
-- Similarly, an enabling of all grid types is interesting to us if there is a way to make this performant.
+- Similarly, an [enabling of all grid types](https://www.openvdb.org/documentation/doxygen/python.html) is interesting to us if there is a way to make this performant.
